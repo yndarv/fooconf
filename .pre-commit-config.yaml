@@ -14,3 +14,8 @@ repos:
           - commit-msg
         additional_dependencies:
           - "@commitlint/config-conventional"
+  - repo: https://github.com/tekwizely/pre-commit-golang
+    rev: master
+    hooks:
+      - id: golangci-lint
+        alias: lint
