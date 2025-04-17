@@ -1,14 +1,15 @@
 # fooconf
 
-Videoconference web-app written with Go and *???*.
+Videoconference web-app written with Go and _???_.
 
 Goal is to make it look like 'production-grade project'
 
 ## MVP
 
-- default user management with auth. *2fa
+- default user management with auth. \*2fa
 - two types of meetings: 1v1 and conference
 - conference must support up to 10 participants with decent audio/video quality
+  kfjekgjek jgekj gkejg kejg k fkjgkjrgrkj grjgkrjg
 
 ![[./docs/mvp.svg]]
 
@@ -19,18 +20,20 @@ Goal is to make it look like 'production-grade project'
 - [ ] Define application components
 - [ ] Design a Database(models, relations)
 - [ ] Design an API
-- [ ] Frontend: vuejs/htmx+alpine???
+- [ ] Frontend: vue/htmx+alpine???
 - [ ] WebRTC server???
 
 ### PROJECT SETUP
 
 - [ ] a template makefile
-- [ ] golang linter config
-- [ ] hot-reload config
-- [ ] editorconfig
-- [ ] pre-commit hooks
-  - [ ] commit naming
-  - [ ] linter checks
+- [x] golang linter config
+- [x] hot-reload config
+- [x] editorconfig
+- [ ] dockerfile for API service
+- [ ] docker compose for API service and postgres
+- [~] pre-commit hooks
+  - [x] commit naming
+  - [x] linter checks
   - [ ] running tests
 - [ ] github actions
   - [ ] tests
