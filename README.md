@@ -9,9 +9,6 @@ Goal is to make it look like 'production-grade project'
 - default user management with auth. \*2fa
 - two types of meetings: 1v1 and conference
 - conference must support up to 10 participants with decent audio/video quality
-  kfjekgjek jgekj gkejg kejg k fkjgkjrgrkj grjgkrjg
-
-![[./docs/mvp.svg]]
 
 ## TODO
 
