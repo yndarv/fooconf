@@ -2,8 +2,6 @@
 
 Videoconference web-app written with Go and _???_.
 
-Goal is to make it look like 'production-grade project'
-
 ## MVP
 
 - default user management with auth. \*2fa
@@ -24,7 +22,7 @@ Goal is to make it look like 'production-grade project'
 
 - [ ] a template makefile
 - [x] golang linter config
-- [x] hot-reload config
+- [x] air config
 - [x] editorconfig
 - [ ] dockerfile for API service
 - [ ] docker compose for API service and postgres
