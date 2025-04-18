@@ -1,17 +1,18 @@
 # ==================================================================================== #
 # VARIABLES
 # ==================================================================================== #
+DELVE_DEBUG_PORT := :1337
 
 # Applications / Services
-APP_FOOCONF     := fooconf
-APP_VERSION     := 0.0.1
-BUILD_DIR       := ./build
+APP_FOOCONF      := fooconf
+APP_VERSION      := 0.0.1
+BUILD_DIR        := ./build
 
 # Versions
-GOLANG          := golang:1.24
-POSTGRES        := postgres:17.4
-ALPINE          := alpine:3.21
-PGADMIN         := dpage/pgadmin4:9.2.0
+GOLANG           := golang:1.24
+POSTGRES         := postgres:17.4
+ALPINE           := alpine:3.21
+PGADMIN          := dpage/pgadmin4:9.2.0
 
 # ==================================================================================== #
 # TOOLING
@@ -26,6 +27,7 @@ install/gotooling:
 	go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.1.2
 	go install github.com/nametake/golangci-lint-langserver@latest
 	go install github.com/air-verse/air@latest
+	go install github.com/go-delve/delve/cmd/dlv@latest
 
 ## install/docker: Pull base Docker images
 .PHONY: install/docker
@@ -37,7 +39,7 @@ install/docker:
 	wait;
 
 # ==================================================================================== #
-# BUILD AND RUN LOCALLY
+# LOCAL DEV
 # ==================================================================================== #
 
 ## build: Build application binary
@@ -52,10 +54,28 @@ build:
 run: build
 	@$(BUILD_DIR)/$(APP_FOOCONF)
 
-## dev/run: Run with live reload using air
+## air: Run with live reload using air
 .PHONY: dev/run
-dev/run:
+air:
 	@air -c .air.toml
+
+## debug: Debug binary with delve
+.PHONY: debug
+debug:
+	@dlv debug ./cmd/$(APP_FOOCONF)
+
+## debug-headless: Debug binary with delve in headless mode
+.PHONY: debug-headless
+debug-headless:
+	@dlv debug --headless \
+		--listen $(DELVE_DEBUG_PORT) \
+		--api-version 2 \
+		./cmd/$(APP_FOOCONF)
+
+## debug-headless-connect: Attach to delve in headless mode
+.PHONY: debug-headless-connect
+debug-headless-connect:
+	@dlv connect $(DELVE_DEBUG_PORT)
 
 # ==================================================================================== #
 # QUALITY CONTROL
