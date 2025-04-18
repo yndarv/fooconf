@@ -4,28 +4,22 @@ Videoconference web-app written with Go and _???_.
 
 ## MVP
 
-- default user management with auth. \*2fa
-- two types of meetings: 1v1 and conference
-- conference must support up to 10 participants with decent audio/video quality
+- rooms with up to N participants can speak, share screens and webcam video with
+  decent quality
+- chat
+- user auth with password restore functionality
+- most security measures implemented
 
 ## TODO
 
-### Design
-
-- [ ] Define application components
-- [ ] Design a Database(models, relations)
-- [ ] Design an API
-- [ ] Frontend: vue/htmx+alpine???
-- [ ] WebRTC server???
-
 ### PROJECT SETUP
 
-- [ ] a template makefile
+- [x] a template makefile
 - [x] golang linter config
 - [x] air config
 - [x] editorconfig
-- [ ] dockerfile for API service
-- [ ] docker compose for API service and postgres
+- [x] dockerfile for API service
+- [x] docker compose for API service
 - [~] pre-commit hooks
   - [x] commit naming
   - [x] linter checks
@@ -33,16 +27,10 @@ Videoconference web-app written with Go and _???_.
 - [ ] github actions
   - [ ] tests
   - [ ] linting
+- [ ] go project versioning
 
-## Going further
+### Backend
 
-- Microservice architecture with gRPC for services and GraphQL for client
-- Queues
-- Caching
-- Metrics
-- Deployment with k8s
-
-## Used as a reference
-
-- https://github.com/ardanlabs/service
-- https://github.com/rasadov/EcommerceAPI
+- [ ] API Service for creating rooms
+- [ ] AUTH Service for authentication
+- [ ] WebRTC Server
